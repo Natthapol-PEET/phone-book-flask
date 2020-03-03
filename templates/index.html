@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App</title>
+
+<style> 
+
+img {
+  border-radius: 50%;
+  width: 10%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+  text-align: center;
+  font-size: 20px;
+}
+
+.line {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-left: 2000px solid white;
+  height: 5px;
+  width: 500px;
+}
+
+.button {
+  background-color: #fe346e; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button:hover {
+  background-color:white;
+  color:#fe346e;
+  
+}
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: #fe346e;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ffbd69;
+  color: #fe346e;
+}
+
+/* Style the header */
+.header {
+  width: 60%;
+  height: auto;
+  padding: 5px;
+  /* border: 1px solid blue; */
+  /* background-color: yellow;  */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+
+</head>
+<body>
+  <style type="text/css">
+    body {
+      color: white;
+      background-color: white;
+			background-image: linear-gradient(#381460,#b21f66);
+    }
+    </style>
+
+    <img src="https://cdn.pixabay.com/photo/2019/08/11/18/49/icon-4399683_960_720.png">
+
+    <div class="title">
+        <h3>เพิ่มเบอร์โทรศัพท์</h3>
+    </div>
+
+    <div class="header">
+      <form name="insert_data" action="." method="POST">
+        <label>*กรุณากรอกชื่อ</label>
+        <input type="text", name="name">
+        <label>*กรุณากรอกเบอร์โทรศัพท์</label>
+        <input type="text", name="phone">
+        <input type="submit" class="button" value="submit">
+    </form>
+    </div>
+
+
+
+    <div class="line"></div>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjJKU6ThCGOL4bggzg6LzQVRRG6y3qLbIXG6E7qgq0ZAZmnrhD">
+
+    <div class="title">
+        <h3>ค้นหาเบอร์โทรศัพท์</h3>
+    </div>
+
+    <div class="header">
+      <form name="Search_data" action="." method="POST">
+        <label>*ใส่ชื่อที่ต้องการค้นหา</label>
+        <input type="text", name="search_name">
+        <input type="submit" class="button" value="submit">
+      </form>
+    </div>
+
+    <table id="customers">
+        <colgroup>
+            <col span="2" width="60">
+            <col width="120">
+            <col span="3" width="10">
+        </colgroup>
+        <tr>
+          <th><b>ลำดับ</b></th>
+          <th><b>ชื่อ</b></th>
+          <th><b>เบอร์โทรศัพท์</b></th>
+
+        {% for x in data %} 
+        </tr>
+        <td>{{x[0]}}</td>
+        <td>{{x[2]}}</td>
+        <td>{{x[1]}}</td>
+        <tr>
+        {% endfor %}
+
+</body>
+</html>
+
